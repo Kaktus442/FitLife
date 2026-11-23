@@ -66,15 +66,12 @@ def human_weight_height(statement):
             return value
         print('Значение должно быть от 1 до 300. Попробуйте ещё раз.')
 
-# name = input
+
 user_name = meeting()
-# age = input
 age = human_age('Напиши свой возраст: ')
 
 # 2. Сбор данных
-# weight = input
 weight = human_weight_height('Напиши свой вес (кг): ')
-# height = input
 height = human_weight_height('Напиши свой рост в (м), с использованием ".": ')
 
 # 3. Логика расчетов (Функции как "черный ящик": используем арифметику)
