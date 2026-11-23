@@ -13,26 +13,24 @@ def meeting():
     Попробуйте ещё раз."""
     '''
     while True:
-        name = input("Привет! Напиши своё имя: ").strip()
+        name = user_name
         if name:
             return name
         print('Имя не может быть пустым. Попробуйте ещё раз.')
 
 
-def human_age(statement):
+def human_age():
     """Проверяет введённый возраст с клавиатуры.
 
     Функция проверяет введённое значение с клавиатуры
     на предмет пустой строки и целого числа.
 
-    Args:
-    statement (str): Строка, которая выводиться при вызове функции.
-
+    
     Returns:
     value: Целочисленное значение введённого значения с клавиатуры.
     """
     while True:
-        user_ans = input(statement).strip()
+        user_ans = age
         try:
             value = int(user_ans)
         except ValueError:
@@ -43,20 +41,38 @@ def human_age(statement):
         print('Значение должно быть от 1 до 130. Попробуйте ещё раз.')
 
 
-def human_weight_height(statement):
-    """Проверяет введённый вес и рост с клавиатуры.
+def human_weight():
+    """Проверяет введённый вес с клавиатуры.
 
     Функция проверяет введённое значение с клавиатуры
     на предмет пустой строки и попадает ли значение в допустимый диапазон.
 
-    Args:
-    statement (str): Строка, которая выводиться при вызове функции.
+    
+    Returns:
+    value: Значение с плавающей точкой, введённое с клавиатуры.
+    """
+    while True:
+        user_ans = weight
+        try:
+            value = float(user_ans)
+        except ValueError:
+            print('Должно быть введено число. Попробуйте ещё раз.')
+            continue
+        if 1 <= value <= 300:
+            return value
+        print('Значение должно быть от 1 до 300. Попробуйте ещё раз.')
+
+def human_height():
+    """Проверяет введённый рост с клавиатуры.
+
+    Функция проверяет введённое значение с клавиатуры
+    на предмет пустой строки и попадает ли значение в допустимый диапазон.
 
     Returns:
     value: Значение с плавающей точкой, введённое с клавиатуры.
     """
     while True:
-        user_ans = input(statement).strip()
+        user_ans = height
         try:
             value = float(user_ans)
         except ValueError:
@@ -67,12 +83,12 @@ def human_weight_height(statement):
         print('Значение должно быть от 1 до 300. Попробуйте ещё раз.')
 
 
-user_name = meeting()
-age = human_age('Напиши свой возраст: ')
+user_name = input("Привет! Напиши своё имя: ").strip()
+age = input('Напиши свой возраст: ').strip()
 
 # 2. Сбор данных
-weight = human_weight_height('Напиши свой вес (кг): ')
-height = human_weight_height('Напиши свой рост в (м), с использованием ".": ')
+weight = input('Напиши свой вес (кг): ').strip()
+height = input('Напиши свой рост в (м), с использованием ".": ').strip()
 
 # 3. Логика расчетов (Функции как "черный ящик": используем арифметику)
 # Формула ИМТ: вес разделить на (рост в квадрате)
