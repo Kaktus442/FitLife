@@ -2,6 +2,16 @@
 
 # 1. Знакомство
 def meeting():
+    '''Приветствует пользователя.
+
+    Функция проверяет введённое значение с клавиатуры
+    на предмет пустой строки. Если строка пустая, то 
+    предлагает попробовать ввести значение снова. 
+
+    Returns:
+    name или выводит надпись: "Имя не может быть пустым. Попробуйте ещё раз."
+    '''
+
     while True:
         name = input("Привет! Напиши своё имя: ").strip()
         if name:
@@ -10,10 +20,22 @@ def meeting():
 
 
 def human_age(statement):
+    """Проверяет введённый возраст с клавиатуры.
+
+    Функция проверяет введённое значение с клавиатуры
+    на предмет пустой строки и целого числа.
+
+    Args:
+    statement (str): Строка, которая выводиться при вызове функции.
+
+    Returns:
+    value: Целочисленное значение введённого значения с клавиатуры.
+    """
+
     while True:
         user_ans = input(statement).strip()
         try:
-            value = int(user_ans) 
+            value = int(user_ans)
         except ValueError:
             print('Нужно ввести целое число. Попробуйте ещё раз.')
             continue
@@ -23,12 +45,24 @@ def human_age(statement):
 
 
 def human_weight_height(statement):
+    """Проверяет введённый вес и рост с клавиатуры.
+    
+        Функция проверяет введённое значение с клавиатуры
+        на предмет пустой строки и попадает ли значение в допустимый диапазон.
+    
+        Args:
+        statement (str): Строка, которая выводиться при вызове функции.
+    
+        Returns:
+        value: Значение с плавающей точкой, введённое с клавиатуры.
+        """
+    
     while True:
         user_ans = input(statement).strip()
         try:
             value = float(user_ans)
         except ValueError:
-            print('Нужно ввести целое число. Попробуйте ещё раз.')
+            print('Должно быть введено число. Попробуйте ещё раз.')
             continue
         if 1 <= value <= 300:
             return value
@@ -54,12 +88,12 @@ water_l = (weight * 30) / 1000
 # Подбор склонения в зависимости от возраста
 
 
-def get_word(age):
-    if age % 10 == 1 and age % 100 != 11:
+def get_word(age_declension):
+    if age_declension % 10 == 1 and age_declension % 100 != 11:
         return "год"
-    elif 11 <= age % 100 <= 14:
+    elif 11 <= age_declension % 100 <= 14:
         return "лет"
-    elif 2 <= age % 10 <= 4:
+    elif 2 <= age_declension % 10 <= 4:
         return "года"
     else:
         return "лет"
