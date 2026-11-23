@@ -8,6 +8,7 @@ def meeting():
             return name
         print('Имя не может быть пустым. Попробуйте ещё раз.')
 
+
 def human_age(statement):
     while True:
         user_ans = input(statement).strip()
@@ -18,20 +19,21 @@ def human_age(statement):
             continue
         if 1 <= value <= 130:
             return value
-        print(f'Значение должно быть от 1 до 130. Попробуйте ещё раз.')
+        print('Значение должно быть от 1 до 130. Попробуйте ещё раз.')
+
 
 def human_weight_height(statement):
     while True:
         user_ans = input(statement).strip()
         try:
-            value = float(user_ans) 
+            value = float(user_ans)
         except ValueError:
             print('Нужно ввести целое число. Попробуйте ещё раз.')
             continue
         if 1 <= value <= 300:
             return value
-        print(f'Значение должно быть от 1 до 300. Попробуйте ещё раз.')
-    
+        print('Значение должно быть от 1 до 300. Попробуйте ещё раз.')
+
 
 user_name = meeting()
 age = human_age('Напиши свой возраст: ')
@@ -51,6 +53,7 @@ water_l = (weight * 30) / 1000
 
 # Подбор склонения в зависимости от возраста
 
+
 def get_word(age):
     if age % 10 == 1 and age % 100 != 11:
         return "год"
@@ -61,11 +64,12 @@ def get_word(age):
     else:
         return "лет"
 
+
 word = get_word(age)
 
 # 4. Вывод красивого результата
 print()
-print("Отчёт для пользователя:", user_name, (f"{age}"), word )
+print("Отчёт для пользователя:", user_name, (f"{age}"), word)
 print(f"Твой Индекс Массы Тела: {float_bmi:.1f}")
 print(f"Рекомендуемая норма воды: {water_l:.1f} л в день")
 print("Расчет окончен. Будьте здоровы!")
